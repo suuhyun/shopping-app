@@ -18,10 +18,14 @@ const Navbar = () => {
   const handleLogin = () => {
     navigate("/login")
   }
+
+  const goToHome = () => {
+    navigate("/")
+  }
   return (
     <>
       <div className="flex justify-between py-3">
-        <div>
+        <div onClick={goToHome} className="cursor-pointer">
           <img
             src="https://www.dynamiteclothing.com/on/demandware.static/Sites-DynamiteGarageCA-Site/-/default/dw4788f1e9/images/svg-icons/logo-dyn.svg"
             alt=""
