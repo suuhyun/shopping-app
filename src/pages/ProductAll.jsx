@@ -12,7 +12,9 @@ const ProductAll = () => {
   useEffect(() => {
     getProducts();
   }, []);
-  return <div><ProductCard /></div>;
+  return <div className="grid grid-cols-4 gap-6">
+    {productList.map((item) => <div className="col-span-1"><ProductCard item={item}/></div>)}
+  </div>;
 };
 
 export default ProductAll;

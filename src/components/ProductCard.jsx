@@ -1,12 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const ProductCard = () => {
+const ProductCard = ({item}) => {
+    const navigate = useNavigate();
+    const showDetails = () => {
+        navigate(`/product/${item.id}`)
+    }
   return (
-    <div>
-      <img src="https://www.dynamiteclothing.com/dw/image/v2/BDRP_PRD/on/demandware.static/-/Sites-root_dynamite_catalog/default/dw4bf71eeb/images/100090965/100090965_7NB_1920x2880.jpg?sw=640&sh=960" alt="" />
-      <div>dress</div>
-      <div>$100</div>
-      <div>new</div>
+    <div className="trasition ease-in-out hover:scale-110 hover:mx-3" onClick={showDetails}>
+      <img src={item?.img} alt="" />
+      <div className="text-xs mt-1">{item?.choice ? "Conscious choice" : ""}</div>
+      <div className="truncate ...">{item?.title}</div>
+      <div>${item?.price}</div>
+      <div>{item?.new ? "new" : ""}</div>
     </div>
   );
 };
