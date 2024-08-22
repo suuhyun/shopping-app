@@ -7,7 +7,7 @@ const ProductAll = () => {
   const [query, setQuery] = useSearchParams();
   const getProducts = async () => {
     const searchQuery = query.get("q") || "";
-    const url = `http://localhost:4000/products?q=${searchQuery}`;
+    const url = `https://my-json-server.typicode.com/suuhyun/shopping-app/products?q=${searchQuery}`;
     const response = await fetch(url);
     const data = await response.json();
     setProductList(data);
