@@ -18,6 +18,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     }
   };
   useEffect(() => {
+    handleResize();
     window.addEventListener("resize", handleResize);
   }, []);
 
