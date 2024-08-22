@@ -10,12 +10,15 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
   const [showSideBar, setShowSideBar] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
+  const handleResize = () => {
     if (window.innerWidth < 1024) {
       setShowMenu(true);
     } else {
       setShowMenu(false);
     }
+  };
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
   }, []);
 
   const handleLogin = () => {
