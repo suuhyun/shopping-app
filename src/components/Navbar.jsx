@@ -10,16 +10,13 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
   const [showSideBar, setShowSideBar] = useState(false);
   const navigate = useNavigate();
 
-  const handleResize = () => {
+  useEffect(() => {
     if (window.innerWidth < 1024) {
       setShowMenu(true);
     } else {
       setShowMenu(false);
     }
-  };
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-  });
+  }, []);
 
   const handleLogin = () => {
     setAuthenticate(false);
@@ -39,16 +36,16 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
               <>
                 <div
                   className="text-lg absolute z-10 cursor-pointer"
-                  onClick={() => setShowSideBar(!showSideBar)}
+                  onClick={() => setShowSideBar(false)}
                 >
                   X
                 </div>
-                <MenuItems />
+                <MenuItems showSidebar={showSideBar}/>
               </>
             ) : (
               <CiMenuBurger
                 className="lg:hidden mr-3"
-                onClick={() => setShowSideBar(!showSideBar)}
+                onClick={() => setShowSideBar(true)}
               />
             )}
           </div>
@@ -60,7 +57,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
             />
           </div>
         </div>
-        {!showMenu && <MenuItems />}
+        {!showMenu && <MenuItems showSidebar={showSideBar}/>}
         <div
           className="flex items-center gap-1 cursor-pointer max-w-max"
           onClick={handleLogin}
