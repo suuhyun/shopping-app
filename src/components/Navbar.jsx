@@ -38,7 +38,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
             {showSideBar ? (
               <>
                 <div
-                  className="text-lg absolute z-10"
+                  className="text-lg absolute z-10 cursor-pointer"
                   onClick={() => setShowSideBar(!showSideBar)}
                 >
                   X
