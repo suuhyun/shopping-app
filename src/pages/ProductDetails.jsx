@@ -5,7 +5,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const getProductDetails = async () => {
-    const url = `http://localhost:4000/products/${id}`;
+    const url = `https://my-json-server.typicode.com/suuhyun/shopping-app/products/${id}`;
     const response = await fetch(url);
     const data = await response.json();
     setProduct(data);

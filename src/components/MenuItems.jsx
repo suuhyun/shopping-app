@@ -14,7 +14,7 @@ const MenuItems = ({ showSidebar }) => {
   return (
     <div
       className={`flex gap-8 ${
-        showSidebar &&
+        showSidebar && 
         "flex-col items-start absolute top-0 bg-white px-10 py-10"
       }`}
     >
